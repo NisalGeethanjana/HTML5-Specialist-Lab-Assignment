@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Serendib Studios — award-winning documentary films from Sri Lanka.">
+  <title>Serendib Studios | Documenting Ceylon</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SPRINT 4 — JSON-LD Structured Data (placed in <head>)
+       Three blocks: Course, Event, Organization
+  ════════════════════════════════════════════════════════════ -->
+
+  <!-- Course schema — for the Documentary Filmmaking workshop -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Documentary Filmmaking Intensive",
+    "description": "Learn the art and craft of documentary filmmaking from award-winning directors. Master camera techniques, storytelling, and post-production workflows.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Serendib Studios",
+      "url": "https://serendib-studios.lk",
+      "sameAs": [
+        "https://www.instagram.com/serendibstudios",
+        "https://www.facebook.com/serendibstudios"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "LK",
+        "addressLocality": "Colombo 03",
+        "addressRegion": "Western Province",
+        "postalCode": "00300",
+        "streetAddress": "14 Galle Face Terrace"
+      }
+    },
+    "instructor": {
+      "@type": "Person",
+      "name": "Isuru Samarappulige",
+      "jobTitle": "Senior Lecturer",
+      "affiliation": {
+        "@type": "EducationalOrganization",
+        "name": "Horizon Campus",
+        "url": "https://www.horizoncampus.edu.lk"
+      }
+    },
+    "educationalLevel": "Undergraduate",
+    "about": "Year 2 B.Sc. (Hons) Information Technology students with basic web development experience.",
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "courseMode": "Onsite",
+        "startDate": "2026-09-01",
+        "instructor": {
+          "@type": "Person",
+          "name": "Isuru Samarappulige"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Event schema — for Colombo Film Festival screening -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Serendib Studios Film Screening",
+    "description": "Experience award-winning Sri Lankan documentary films on big screen.",
+    "startDate": "2026-03-14T19:00:00+05:30",
+    "endDate": "2026-03-14T22:00:00+05:30",
+    "location": {
+      "@type": "Place",
+      "name": "Serendib Studios Cinema",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Galle Road",
+        "addressLocality": "Colombo 03",
+        "addressRegion": "Western Province",
+        "addressCountry": "LK",
+        "postalCode": "00300"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Serendib Studios",
+      "url": "https://serendib-studios.lk",
+      "sameAs": [
+        "https://www.instagram.com/serendibstudios",
+        "https://www.facebook.com/serendibstudios"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "LKR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-01-01"
+    }
+  }
+  </script>
+
+  <!-- Organization schema — for the studio itself -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Serendib Studios",
+    "description": "Sri Lanka's leading documentary film production house. Based in Colombo, specializing in authentic Sri Lankan stories since 2010.",
+    "url": "https://serendib-studios.lk",
+    "logo": "https://serendib-studios.lk/logo.png",
+    "foundingDate": "2010-01-15",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "14 Galle Face Terrace",
+      "addressLocality": "Colombo 03",
+      "addressRegion": "Western Province",
+      "addressCountry": "LK",
+      "postalCode": "00300"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+94 11 234 5678",
+      "email": "films@serendib-studios.lk",
+      "contactType": "customer service",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["English", "Sinhala", "Tamil"]
+    },
+    "sameAs": [
+      "https://www.instagram.com/serendibstudios",
+      "https://www.facebook.com/serendibstudios"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Basic reset & base styles ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; font-size: 16px; line-height: 1.6; color: #1e293b; background: #f8fafc; }
+    a { color: #4338ca; }
+    img, video, audio { max-width: 100%; display: block; }
+
+    /* ── Header & Nav ── */
+    header { background: #1e293b; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { color: #fff; font-size: 1.25rem; font-weight: 700; text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul li a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; }
+    nav ul li a:hover { color: #fff; }
+
+    /* ── Main content ── */
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+    /* ── Sections & articles ── */
+    section { margin-bottom: 2.5rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.4rem; }
+    h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+    p { margin-bottom: 0.75rem; color: #334155; }
+    article { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; }
+
+    /* ── Two-column film grid ── */
+    .films-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .films-grid article {
+      margin-bottom: 0;          /* grid gap handles spacing */
+      display: flex;
+      flex-direction: column;
+    }
+    .films-grid article figure { flex: 1; }
+    .films-grid article figure img { width: 100%; height: 220px; object-fit: cover; border-radius: 6px; }
+    /* Stack to single column on small screens */
+    @media (max-width: 640px) {
+      .films-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Aside ── */
+    aside { background: #eff6ff; border-left: 4px solid #4338ca; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; }
+    aside h2 { border-bottom: none; }
+    aside ul { padding-left: 1.2rem; }
+    aside li { margin-bottom: 0.3rem; color: #334155; }
+
+    /* ── Hero ── */
+    #hero { background: #1e293b; color: #fff; padding: 2.5rem 2rem; border-radius: 10px; }
+    #hero h1 { color: #fff; }
+    #hero p { color: #cbd5e1; }
+
+    /* ── Form (Sprint 2) ── */
+    #book { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; }
+    fieldset { border: 1px solid #cbd5e1; border-radius: 6px; padding: 1rem; margin-bottom: 1rem; }
+    legend { font-weight: 600; color: #1e293b; padding: 0 0.4rem; }
+    label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; color: #334155; }
+    input, select, textarea { width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; margin-bottom: 0.75rem; }
+    input:focus, select:focus { outline: 2px solid #4338ca; border-color: #4338ca; }
+    input:invalid { border-color: #dc2626; }
+    input:valid { border-color: #16a34a; }
+    .field-hint { font-size: 0.82rem; color: #64748b; display: block; margin-top: -0.6rem; margin-bottom: 0.5rem; }
+    .error-text { font-size: 0.82rem; color: #dc2626; display: block; margin-top: -0.5rem; margin-bottom: 0.5rem; }
+    .error-messages { background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; display: none; }
+    button[type="submit"] { background: #4338ca; color: #fff; border: none; border-radius: 6px; padding: 0.6rem 1.4rem; font-size: 1rem; cursor: pointer; font-weight: 600; }
+    button[type="submit"]:hover { background: #3730a3; }
+    /* Checkbox label: flex keeps the tick box and text on one line */
+    label.checkbox-label { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; cursor: pointer; }
+    label.checkbox-label input[type="checkbox"] { width: auto; margin: 0; flex-shrink: 0; }
+
+    /* ── Media section (Sprint 3) ── */
+    #trailer { margin-bottom: 2rem; }
+    figure { margin: 0 0 1rem; }
+    figcaption { font-size: 0.85rem; color: #64748b; margin-top: 0.4rem; }
+
+    /* ── Footer ── */
+    footer { background: #1e293b; color: #94a3b8; text-align: center; padding: 1.5rem 1rem; font-size: 0.85rem; margin-top: 3rem; }
+    footer address { font-style: normal; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ─ SITE HEADER ─────────────────────────────────────────── -->
+<header>
+  <a href="/" class="logo">Serendib Studios</a>
+  <nav aria-label="Primary navigation">
+    <ul>
+      <li><a href="#films">Films</a></li>
+      <li><a href="#screenings">Screenings</a></li>
+      <li><a href="#book">Book a Seat</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ─ MAIN CONTENT ─────────────────────────────────────────── -->
+<main>
+
+  <!-- Hero — section is valid because it has an h1 -->
+  <section id="hero" aria-label="Featured">
+    <h1>Documenting Ceylon</h1>
+    <p>Award-winning documentary films from Sri Lanka since 2010.</p>
+
+    <!-- SPRINT 3: Hero picture element -->
+    <picture>
+      <!-- AVIF: best compression for modern browsers -->
+      <source
+        type="image/avif"
+        srcset="assets/images/hero-400w.avif 400w,
+                assets/images/hero-800w.avif 800w,
+                assets/images/hero-1200w.avif 1200w"
+        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+      <!-- WebP: good fallback -->
+      <source
+        type="image/webp"
+        srcset="assets/images/hero-400w.webp 400w,
+                assets/images/hero-800w.webp 800w,
+                assets/images/hero-1200w.webp 1200w"
+        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+      <!-- JPEG: universal fallback; fetchpriority="high" because this is LCP -->
+      <img
+        src="assets/images/hero-800.jpg"
+        srcset="assets/images/hero-400w.jpg 400w,
+                assets/images/hero-800w.jpg 800w,
+                assets/images/hero-1200w.jpg 1200w"
+        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+        alt="Serendib Studios film crew shooting at sunset on a Sri Lankan beach"
+        fetchpriority="high"
+        width="800"
+        height="533">
+    </picture>
+  </section>
+
+  <!-- Films section — each film IS self-contained, so article is correct -->
+  <section id="films">
+    <h2>Our Films</h2>
+
+    <!-- films-grid: CSS grid places Spice Route (left) and Monsoon Memory (right) -->
+    <div class="films-grid">
+
+      <article>
+        <h3>The Spice Route</h3>
+        <p>A 90-minute journey through Sri Lanka's cinnamon trade.
+           <time datetime="2023">2023</time> · 90 min</p>
+        <figure>
+          <img
+            src="assets/images/spice-route-still.jpg"
+            alt="A cinnamon farmer peeling bark in Matale, from The Spice Route"
+            loading="lazy"
+            width="800"
+            height="450">
+          <figcaption>Scene from <em>The Spice Route</em> (2023) — cinnamon harvest in Matale.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Monsoon Memory</h3>
+        <p>Personal stories from the 2004 tsunami survivors.
+           <time datetime="2024">2024</time> · 75 min</p>
+        <figure>
+          <img
+            src="assets/images/monsoon-memory-beach.jpg"
+            alt="A quiet Sri Lankan beach under monsoon clouds"
+            loading="lazy"
+            width="800"
+            height="450">
+          <figcaption>A quiet Sri Lankan beach under monsoon clouds — from <em>Monsoon Memory</em> (2024).</figcaption>
+        </figure>
+      </article>
+
+    </div><!-- /.films-grid -->
+  </section>
+
+  <!-- About teaser — NOT self-contained, so section not article -->
+  <section id="about">
+    <h2>About the Studio</h2>
+    <p>We are a Colombo-based studio. Our work spans 12 countries
+       and 50+ films across three decades.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SPRINT 2 — Accessible Booking Form
+  ════════════════════════════════════════════════════════════ -->
+  <section id="book" aria-labelledby="booking-form-title">
+    <h2 id="booking-form-title">Book a Screening</h2>
+
+    <form action="/book-screening" method="post" aria-labelledby="booking-form-title" novalidate>
+
+      <!-- Live region: summary error messages injected here by JS -->
+      <div
+        id="form-errors"
+        class="error-messages"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true">
+      </div>
+
+      <!-- Group 1: Booking Details -->
+      <fieldset>
+        <legend>Booking Details</legend>
+
+        <label for="film-title">Film Title</label>
+        <select id="film-title" name="film-title" required aria-required="true">
+          <option value="">Select a film...</option>
+          <option value="spice-route">The Spice Route (2023)</option>
+          <option value="monsoon-memory">Monsoon Memory (2024)</option>
+        </select>
+
+        <label for="screening-date">Screening Date</label>
+        <!--
+          min="2026-05-16" prevents past dates at the HTML level.
+          The browser will reject any date before this value.
+        -->
+        <input
+          type="date"
+          id="screening-date"
+          name="screening-date"
+          min="2026-05-16"
+          required
+          aria-required="true"
+          aria-describedby="date-hint">
+        <span id="date-hint" class="field-hint">Select a date from today onwards.</span>
+      </fieldset>
+
+      <!-- Group 2: Contact Information -->
+      <fieldset>
+        <legend>Contact Information</legend>
+
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          aria-required="true"
+          aria-describedby="email-hint email-error"
+          autocomplete="email"
+          placeholder="your@email.com">
+        <span id="email-hint" class="field-hint">We will send your confirmation here.</span>
+        <span id="email-error" class="error-text" aria-live="polite"></span>
+
+        <label for="phone">Phone number (optional)</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autocomplete="tel"
+          aria-describedby="phone-hint"
+          placeholder="+94 77 123 4567">
+        <span id="phone-hint" class="field-hint">Include country code, e.g. +94 77 …</span>
+      </fieldset>
+
+      <!-- Group 3: Ticket Quantity -->
+      <fieldset>
+        <legend>Ticket Quantity</legend>
+
+        <label for="tickets">Number of Tickets</label>
+        <input
+          type="number"
+          id="tickets"
+          name="tickets"
+          min="1"
+          max="10"
+          step="1"
+          value="1"
+          required
+          aria-required="true"
+          aria-describedby="tickets-hint">
+        <span id="tickets-hint" class="field-hint">You can book between 1 and 10 tickets per order.</span>
+      </fieldset>
+
+      <!-- Group 4: Special Requirements -->
+      <fieldset>
+        <legend>Special Requirements</legend>
+        <label for="wheelchair-access" class="checkbox-label">
+          <input
+            type="checkbox"
+            id="wheelchair-access"
+            name="wheelchair-access"
+            value="yes">
+          Wheelchair accessible seating required
+        </label>
+      </fieldset>
+
+      <button type="submit">Book Screening</button>
+    </form>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SPRINT 3 — Embedded Media
+  ════════════════════════════════════════════════════════════ -->
+
+  <!-- Trailer video section -->
+  <section id="trailer">
+    <h2>Watch the Trailer</h2>
+    <p>Get a taste of our award-winning documentary work.</p>
+
+    <!--
+      preload="metadata": only load duration/dimensions on page load.
+      The browser will NOT download the whole file until the user
+      presses play. This improves initial load performance.
+      controls: always provide native controls so keyboard users can
+      operate play/pause/volume without JS.
+    -->
+    <video
+      controls
+      width="800"
+      height="450"
+      poster="assets/video/video-thumb.jpg"
+      preload="metadata">
+      <!-- MP4: widest browser support -->
+      <source src="assets/video/serendib-trailer.mp4" type="video/mp4">
+      <!-- WebM: preferred by Firefox/Chrome for smaller file size -->
+      <source src="assets/video/serendib-trailer.webm" type="video/webm">
+      <!--
+        Captions track — kind="captions" satisfies WCAG 2.1 SC 1.2.2
+        (Captions – Prerecorded, Level A). The default attribute means
+        captions are on automatically.
+      -->
+      <track
+        kind="captions"
+        src="assets/video/serendib-en.vtt"
+        srclang="en"
+        label="English"
+        default>
+      <!-- Fallback text for browsers that do not support <video> -->
+      <p>Your browser does not support HTML5 video.
+        <a href="assets/video/serendib-trailer.mp4">Download trailer (MP4)</a>.
+      </p>
+    </video>
+  </section>
+
+  <!-- Podcast / audio sample -->
+  <section id="podcast">
+    <h2>Listen: Director's Commentary</h2>
+    <p>Hear from our directors about the stories behind the films.</p>
+
+    <!--
+      preload="none": do not download any audio data on page load.
+      controls: required for keyboard and accessibility.
+    -->
+    <audio controls preload="none">
+      <!-- OGG: Firefox/Chrome -->
+      <source src="assets/audio/serendib-podcast.ogg" type="audio/ogg">
+      <!-- MP3: universal -->
+      <source src="assets/audio/serendib-podcast.mp3" type="audio/mpeg">
+      <p>Your browser does not support HTML5 audio.
+        <a href="assets/audio/serendib-podcast.mp3">Download podcast (MP3)</a>.
+      </p>
+    </audio>
+  </section>
+
+  <!-- Screenings sidebar content: tangentially related → <aside> not <main> -->
+  <aside id="screenings">
+    <h2>Upcoming Screenings</h2>
+    <ul>
+      <li>Colombo Film Festival ·
+         <time datetime="2026-03-14">14 March 2026</time>
+      </li>
+      <li>Jaffna Arts Festival ·
+         <time datetime="2026-04-02">2 April 2026</time>
+      </li>
+    </ul>
+  </aside>
+
+</main>
+
+<!-- ─ SITE FOOTER ─────────────────────────────────────────── -->
+<!--
+  © copyright text belongs here, NOT inside <nav>.
+  <footer> is the correct landmark element; <address> is used
+  for contact/authorship information per the HTML spec.
+-->
+<footer>
+  <address>
+    Serendib Studios · 14 Galle Face Terrace · Colombo 03 · Sri Lanka<br>
+    <a href="mailto:films@serendib-studios.lk">films@serendib-studios.lk</a>
+  </address>
+  <p><small>&copy; 2026 Serendib Studios. All rights reserved.</small></p>
+</footer>
+
+</body>
+</html>
